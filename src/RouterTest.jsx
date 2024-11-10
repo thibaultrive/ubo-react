@@ -6,6 +6,7 @@ import {
     useNavigate
 } from "react-router-dom";
 import { Button } from '@mui/material';
+import {Helmet} from "react-helmet";
 
 export default function RouterTest() {
 
@@ -18,6 +19,10 @@ export default function RouterTest() {
     }
 
     return <>
+        <Helmet>
+            <title>Page {myNumber}</title>
+            <meta name="description" content="Number page"/>
+        </Helmet>
         <h1>
             {myNumber}
         </h1>

@@ -1,6 +1,5 @@
 import React, { useState, Suspense, lazy } from 'react';
 import './App.css';
-import Count from './Count';
 import App from './App';
 import SimpleQuotes from './SimpleQuotes';
 import RouterTest from './RouterTest';
@@ -17,6 +16,8 @@ import {
 } from "react-router-dom";
 import {MyContext} from './myContext'
 import Todo from "./Todo";
+import CountBis from "./CountBis";
+import {Helmet} from "react-helmet";
 
 
 const drawerWidth = 240;
@@ -28,8 +29,11 @@ const FormDemo = lazy(() => import('./FormDemo'));
 export default () => {
   return (
     <MyContext.Provider value={useState(5)}>
+      <Helmet>
+        <title>UBO démo</title>
+      </Helmet>
       <Router>
-        <Box sx={{ display: 'flex' }}>
+      <Box sx={{ display: 'flex' }}>
           <AppBar position="fixed" sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}>
             <Toolbar>
               <Typography variant="h6" noWrap component="div">
@@ -93,7 +97,7 @@ export default () => {
                 <header className="App-header">
                   <Routes>
                     <Route path="/" element={<App/>} />
-                    <Route path="/counter" element={<Count/>} />
+                    <Route path="/counter" element={<CountBis/>} />
                     <Route path="/todo" element={<Todo/>} />
                     <Route path="/nested" element={<SimpleQuotes/>} />
                     <Route path="/form" element={<FormDemo/>} />
